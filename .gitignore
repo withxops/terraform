@@ -1,8 +1,9 @@
 backend/.terraform
 backend/.terra*
-
+*.tfstate*
 .terra*
-backend
 
 terrakey*
 *.pub
+
+

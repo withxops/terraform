@@ -1,5 +1,5 @@
 resource "aws_key_pair" "connect_key" {
-  key_name = "terrakey"
+  key_name = "${var.env}-terrakey"
   public_key = file("terrakey.pub")
 }
 
@@ -7,8 +7,8 @@ resource "aws_default_vpc" "default_vpc" {
 }
   
 resource "aws_security_group" "ansible_sg" {
-    name = "ansible_sg"
-    description = "ansible_sg"
+    name = "${var.env}-ansible_sg"
+    description = "${var.env}-ansible_sg"
     vpc_id = aws_default_vpc.default_vpc.id
     ingress {
         from_port = 22
@@ -53,7 +53,7 @@ root_block_device {
 }
 
 tags = {
-  Name = each.key
+  Name = "${var.env}-${each.key}"
   Environment= var.env
 }
 }
