@@ -7,7 +7,7 @@ resource "aws_default_vpc" "default_vpc" {
 }
   
 resource "aws_security_group" "ansible_sg" {
-    name = "ansible_sg"
+    name = "${var.env}ansible_sg"
     description = "ansible_sg"
     vpc_id = aws_default_vpc.default_vpc.id
     ingress {
