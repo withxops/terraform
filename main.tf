@@ -1,5 +1,5 @@
 resource "aws_key_pair" "connect_key" {
-  key_name = "terrakey"
+  key_name = "${var.env}-terrakey"
   public_key = file("terrakey.pub")
 }
 
