@@ -40,6 +40,7 @@ resource "aws_instance" "master_instance" {
     for_each = tomap({
       xdevopsman-micro = "t3.micro",
       xdevopsman-small = "t3.small"
+      xdevopsman-prod = "c7i-flex.large"
     })
     key_name = aws_key_pair.connect_key.key_name
     instance_type = each.value
