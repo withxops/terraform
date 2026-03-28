@@ -7,8 +7,8 @@ resource "aws_default_vpc" "default_vpc" {
 }
   
 resource "aws_security_group" "ansible_sg" {
-    name = "${var.env}ansible_sg"
-    description = "ansible_sg"
+    name = "${var.env}-ansible_sg"
+    description = "${var.env}-ansible_sg"
     vpc_id = aws_default_vpc.default_vpc.id
     ingress {
         from_port = 22
@@ -52,7 +52,7 @@ root_block_device {
 }
 
 tags = {
-  Name = each.key
+  Name = "${var.env}-${each.key}"
   Environment= var.env
 }
 }
