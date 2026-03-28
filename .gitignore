@@ -1,0 +1,8 @@
+backend/.terraform
+backend/.terra*
+
+.terra*
+backend
+
+terrakey*
+*.pub
